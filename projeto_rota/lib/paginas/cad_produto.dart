@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_rota/paginas/util.dart';
 
-// class CadProd extends StatefulWidget {
-//   const CadProd({Key? key}) : super(key: key);
+class CadProd extends StatefulWidget {
+  const CadProd({Key? key}) : super(key: key);
 
-//   @override
-//   State<CadProd> createState() => _CadProdState();
-// }
+  @override
+  State<CadProd> createState() => _CadProdState();
+}
 
-class CadProd extends StatelessWidget {
+class _CadProdState extends State<CadProd> {
+//class CadProd extends StatelessWidget {
   TextEditingController nomeController = TextEditingController();
   TextEditingController valorController = TextEditingController();
 
   GlobalKey<FormState> formController = GlobalKey<FormState>();
 
-  String msg = "Preencha os campos";
+  String msg = "";
 
   enviarDados() {
-    print('Enviar Dados');
-    nomeController.text = "";
-    valorController.text = "";
-    msg = "Dados salvos com sucesso!";
+    setState(() {
+      if (valorController.text != '') {
+        valorController.text = "SUCESSO";
+        msg = "Dados salvos com sucesso!";
+      }
+      //       print('Enviar Dados');
+      // nomeController.text = "";
+      // valorController.text = "";
+    });
   }
 
 // }
@@ -43,7 +49,7 @@ class CadProd extends StatelessWidget {
               'Anexe uma imagem se disponível'),
           Util().criaInputTexto(
               TextInputType.text, 'Descrição', null, 'Descrição do produto'),
-          Util().criaBotaoCadastro(formController, enviarDados, "Salvar"),
+          Util().criaBotaoCadastro(null, enviarDados, "Salvar"),
           Util().criaTexto(msg, null, null),
         ]),
       ),

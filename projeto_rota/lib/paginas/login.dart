@@ -15,11 +15,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     fazLogin() {
-      if (txtEmail.text == 'cliente' && txtSenha.text == '123') {
+      if (txtEmail.text == 'admin') {
         Navigator.of(context).pushNamed('/menu');
-        print('SIM ${txtEmail} - ${txtSenha}');
+        print('CLIENTE ${txtEmail} - ${txtSenha}');
       } else {
-        print('NÃO ${txtEmail} - ${txtSenha}');
+        if (txtEmail.text == 'cliente') {
+          Navigator.of(context).pushNamed('/lista_produto');
+          print('ADMIN ${txtEmail} - ${txtSenha}');
+        }
       }
     }
 

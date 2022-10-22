@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/menu': (context) => Menu(),
         '/lista_produto': (context) => ListaProd(),
         '/cad_produto': (context) => CadProd(),
+        '/login: ': (context) => LoginPage(),
       },
     );
   }

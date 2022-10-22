@@ -12,6 +12,8 @@ class CadCli extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
     return Scaffold(
       appBar: AppBar(
         title: Text('Cadastro de Cliente'),
