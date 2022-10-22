@@ -15,8 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     fazLogin() {
-      if (txtEmail.text == 'admin' && txtSenha.text == '123') {
-        Navigator.of(context).pushNamed('/home');
+      if (txtEmail.text == 'cliente' && txtSenha.text == '123') {
+        Navigator.of(context).pushNamed('/menu');
         print('SIM ${txtEmail} - ${txtSenha}');
       } else {
         print('NÃO ${txtEmail} - ${txtSenha}');

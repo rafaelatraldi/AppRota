@@ -31,6 +31,37 @@ class Util {
             )));
   }
 
+  limparCampos() {
+    print('Limpar Campos');
+  }
+
+  enviarDados() {
+    print('Enviar Dados');
+  }
+
+  criaInputTexto(tipoTeclado, textoEtiqueta, controlador, msgValidacao) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: TextFormField(
+        keyboardType: tipoTeclado,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: textoEtiqueta,
+          labelStyle: const TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        textAlign: TextAlign.center,
+        controller: controlador,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return msgValidacao;
+          }
+        },
+      ),
+    );
+  }
+
   criaBotao(rotulo, funcao, altura, largura) {
     return SizedBox(
       height: altura,
@@ -39,6 +70,37 @@ class Util {
         onPressed: funcao,
         child: criaTexto(rotulo, 20, Colors.white),
       ),
+    );
+  }
+
+  criaBotaoCadastro(controladorFormulario, funcao, titulo) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+            height: 70,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+              ),
+              onPressed: () {
+                if (controladorFormulario.currentState!.validade()) {
+                  funcao;
+                }
+              },
+              child: Text(
+                titulo,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
